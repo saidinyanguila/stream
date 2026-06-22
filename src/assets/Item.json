@@ -1,0 +1,15 @@
+[
+    {
+        "id" : 0,
+        "title" : "",
+        "description" : "",
+        "genres" : [],
+        "cast" : [],
+
+        "images" : {
+            "cover" : "",
+            "banner" : ""
+        }
+    }
+]
+
