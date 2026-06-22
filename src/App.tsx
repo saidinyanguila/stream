@@ -11,7 +11,7 @@ const queryClient = new QueryClient();
 
 const App = () => (
 	<QueryClientProvider client={queryClient}>
-		<BrowserRouter>
+		<BrowserRouter basename="/stream">
 			<Routes>
 				<Route path="/" element={<Index />} />
 				<Route path="/search/" element={<Search />} />
