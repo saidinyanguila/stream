@@ -9,15 +9,15 @@ const Nav = ({ title }: NavProps) => {
     const navItems = [
         {
             "name" : "Home",
-            "href" : "/"
+            "href" : "/stream"
         },
         {
             "name" : "Movies",
-            "href" : "/movies"
+            "href" : "/stream/movies"
         },
         {
             "name" : "TV Shows",
-            "href" : "/tv"
+            "href" : "/stream/tv"
         }
     ];
 
@@ -70,7 +70,7 @@ const Nav = ({ title }: NavProps) => {
                         {isOpen? <X /> : <Menu />}
                     </button>
 
-                    <a href="/" className="text-2xl">Stream</a>
+                    <a href="/stream" className="text-2xl">Stream</a>
 
                     <nav className="hidden md:flex items-center gap-5 mt-1">
                         {navItems.map((item, key) => (
@@ -80,7 +80,7 @@ const Nav = ({ title }: NavProps) => {
                 </div>
                 
                 <div className="hidden md:flex items-center gap-4">
-                    <form action="/search/" className="relative">
+                    <form action="/stream/search/" className="relative">
                         <input name="q" type="text" className="bg-[rgba(50,50,50,0.5)] min-w-100 pl-12 pr-7 py-2 rounded-full focus:outline-1 focus:outline-[rgba(200,200,200,0.5)]" placeholder="Search for a Movie or TV Show" autoComplete="off" required/>
                         <Search size={20} className="absolute top-1/2 left-4 -translate-y-1/2"/>
                     </form>
@@ -129,7 +129,7 @@ const Nav = ({ title }: NavProps) => {
             }
 
             {isSearchOpen && 
-                <form action="/search" className="block md:hidden absolute left-0 top-full w-full bg-[rgb(20,20,20)] px-2 py-3 z-999 transition-all duration-500">
+                <form action="/stream/search" className="block md:hidden absolute left-0 top-full w-full bg-[rgb(20,20,20)] px-2 py-3 z-999 transition-all duration-500">
                     <div className="relative text-white">
                         <input name="q" type="text" className="bg-[rgba(50,50,50,0.5)] w-full pl-12 pr-7 py-2 rounded-full focus:outline-1 focus:outline-[rgba(200,200,200,0.5)]" placeholder="Search for a Movie or TV Show" autoComplete="off" required/>
                         <Search size={20} className="absolute top-1/2 left-4 -translate-y-1/2"/>
