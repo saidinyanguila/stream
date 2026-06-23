@@ -13,11 +13,11 @@ import _banner from "../assets/images/02_banner.jpg";
 
 const item = {
     "id" : 0,
-    "title" : "From",
-    "description" : "The closer the residents of town get to the answers they seek, the more terrifying their search becomes. Who is the Man in Yellow, and what does he want? Season Four will open doors that some in town will end up wishing had remained closed.",
-    "genres" : ["Horror", "Sci-Fi", "Adventure"],
-    "cast" : ["Harold Perrineau", "Catalina Sandino Moreno", "Eion Bailey", "Snoop Dogg"],
-    "release" : "2022",
+    "title" : "Title",
+    "description" : "Description - Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius alias, voluptatum dolorem rem commodi nemo adipisci, perferendis, impedit odit cumque voluptatibus modi distinctio saepe et velit eum necessitatibus? Inventore quaerat dolorum eaque laboriosam eligendi repudiandae.",
+    "genres" : ["Genre 1", "Genre 2", "Genren 3"],
+    "cast" : ["Actor 1", "Actor 2", "Actor 3", "Actor 4"],
+    "release" : "Year",
     "type": 1,
 
     "parts" : [
@@ -49,22 +49,22 @@ const Watch = () => {
     return (
         <div className="relative mx-auto min-h-[200vh] max-w-[1440px] bg-[rgb(15,15,15)]">
             <Nav title="Watch" />
-            
+        
             <section className="relative">
                 <div className="relative md:h-[550px] overflow-hidden">
-                    <img className="h-full w-full object-center object-cover" src={item.images.banner} alt="" />
+                    {/* <img className="h-full w-full object-center object-cover" src={item.images.banner} alt="" /> */}
                     <div className="absolute inset-0 z-99 watch-banner-filter"></div>
                 </div>
     
                 <div className="md:bg-[rgb(0,0,0)] px-4 py-4 md:px-[8%] md:py-10 z-99">
                     <div className="flex flex-col md:flex-row gap-8 md:gap-2 justify-between items-center mb-10">
                         <div className="md:w-1/2 w-full">
-                            <p className="text-3xl text-white font-[500] mb-4">{id}</p>
+                            <p className="text-3xl text-white font-[500] mb-4">{item.title}</p>
     
                             <div className="md:w-3/4 w-full flex gap-2">
-                                <button className="grow-1 flex items-center justify-center gap-4 bg-white text-lg text-center py-3 font-bold rounded-md">
+                                <a href={`#${id}`} className="grow-1 flex items-center justify-center gap-4 bg-white text-lg text-center py-3 font-bold rounded-md">
                                     <Play fill="[black]"/> Play {item.type == 0? "" : item.parts[selectedPart].title}
-                                </button>
+                                </a>
     
                                 <button className="relative block bg-white text-lg text-center px-7 py-3 aspect-square shrink-0 font-bold rounded-md cursor-pointer" onClick={() => setIsSaved(!isSaved)}>
                                     <Plus size={28} strokeWidth={3} className={`absolute inset-0 left-1/2 top-1/2 -translate-1/2 transition-all duration-350 ${isSaved? "scale-0" : "scale-100"}`}/>
