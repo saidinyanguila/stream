@@ -61,7 +61,7 @@ const Section = ({ title }: SectionProps) => {
             <div className="overflow-x-hidden" ref={emblaRef}>
                 <div className="md:flex grid grid-flow-col gap-x-2">
                     {items.map((item, key) => (
-                        <a href={`/watch/${item}`} key={key} className="section-item relative shrink-0 w-[33vw] md:w-[15%] aspect-[3/5] md:max-h-[265px] max-h-[190px] bg-[rgba(100,100,100,0.1)] rounded-lg cursor-pointer overflow-hidden">
+                        <a href={`/stream/watch/${item}`} key={key} className="section-item relative shrink-0 w-[33vw] md:w-[15%] aspect-[3/5] md:max-h-[265px] max-h-[190px] bg-[rgba(100,100,100,0.1)] rounded-lg cursor-pointer overflow-hidden">
                             <div className="section-item-header bg-[rgba(100,100,100,0.1)] hidden md:flex items-center justify-between absolute w-full left-0 px-2 pt-2 pb-1 transition-all duration-300 events-none">
                                 <p className="text-[17px]">2026</p>
                                 <p className="border border-white rounded-md text-[12px] font-bold px-1 px-2">{item > 6? "TV" : "Movie"}</p>

@@ -121,7 +121,7 @@ const Nav = ({ title }: NavProps) => {
 
                         <div className="grid grid-cols-2 gap-2">
                             {genres.map((genre, key) => (
-                                <a key={key} href="/" className="text-[15px] font-[500] text-gray-300 mb-[2px]">{genre.title}</a>
+                                <a key={key} href="/stream/" className="text-[15px] font-[500] text-gray-300 mb-[2px]">{genre.title}</a>
                             ))} 
                         </div>
                     </div>

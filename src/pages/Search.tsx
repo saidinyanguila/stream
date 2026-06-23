@@ -26,7 +26,7 @@ const Search = () => {
 
                     <div className="md:flex flex-wrap grid grid-cols-2 md:grid-cols-5 gap-2">
                         {results.map((res, key) => (
-                            <a href={`/watch/${res}`} key={key} className="section-item text-white relative aspect-[3/5] md:min-w-[18%] bg-[rgba(100,100,100,0.1)] rounded-lg cursor-pointer overflow-hidden">
+                            <a href={`/stream/watch/${res}`} key={key} className="section-item text-white relative aspect-[3/5] md:min-w-[18%] bg-[rgba(100,100,100,0.1)] rounded-lg cursor-pointer overflow-hidden">
                                 <div className="section-item-header bg-[rgba(100,100,100,0.1)] hidden md:flex items-center justify-between absolute w-full left-0 px-2 pt-2 pb-1 transition-all duration-300 events-none">
                                     <p className="text-[17px]">2026</p>
                                     <p className="border border-white rounded-md text-[12px] font-bold px-1 px-2">{res > 6? "TV" : "Movie"}</p>
