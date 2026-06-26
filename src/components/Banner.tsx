@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react"
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay"
 
-import _banner from "../assets/images/00_banner.jpg";
+import _banner from "../assets/banners/00_banner.jpg";
 
 const items = [
     {

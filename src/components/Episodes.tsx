@@ -1,5 +1,5 @@
 import useEmblaCarousel from "embla-carousel-react";
-import _banner from "../assets/images/00_banner.jpg";
+import _banner from "../assets/banners/00_banner.jpg";
 
 const eps = [
     {"title" : "Episode 1"},

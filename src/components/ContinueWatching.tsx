@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-import _banner from "../assets/images/00_banner.jpg";
+import _banner from "../assets/banners/00_banner.jpg";
 
 const ContinueWatching = () => {
     const items = [50, 2, 3, 4, 5, 6, 7, 8, 9, 10];

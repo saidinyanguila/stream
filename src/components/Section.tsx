@@ -6,7 +6,10 @@ type SectionProps = {
   title: string;
 };
 
-const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const items = Object.values(
+    import.meta.glob('@/assets/covers/*.{jpg,jpeg,png,webp}', { eager: true })
+).map((mod: any) => mod.default);
+
 
 const Section = ({ title }: SectionProps) => {
     const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -44,7 +47,7 @@ const Section = ({ title }: SectionProps) => {
     }, [emblaApi, updateButtons])
 
     return (
-        <div className="px-0 py-8 text-white">
+        <div className="px-0 py-7 text-white">
             <div className="flex items-center justify-between mb-8">
                 <h2 className="md:text-3xl font-bold text-xl">{title}</h2>
 
@@ -61,14 +64,15 @@ const Section = ({ title }: SectionProps) => {
             <div className="overflow-x-hidden" ref={emblaRef}>
                 <div className="md:flex grid grid-flow-col gap-x-2">
                     {items.map((item, key) => (
-                        <a href={`/stream/watch/${item}`} key={key} className="section-item relative shrink-0 w-[33vw] md:w-[15%] aspect-[3/5] md:max-h-[265px] max-h-[190px] bg-[rgba(100,100,100,0.1)] rounded-lg cursor-pointer overflow-hidden">
-                            <div className="section-item-header bg-[rgba(100,100,100,0.1)] hidden md:flex items-center justify-between absolute w-full left-0 px-2 pt-2 pb-1 transition-all duration-300 events-none">
-                                <p className="text-[17px]">2026</p>
-                                <p className="border border-white rounded-md text-[12px] font-bold px-1 px-2">{item > 6? "TV" : "Movie"}</p>
-                            </div>
+                        <a href="/stream/watch/item_id" key={key} className="">
+                            <div className="relative shrink-0 md:w-[10%] md:min-w-[175px] min-w-[135px] rounded-md overflow-hidden cursor-pointer">
+                                <div className="bg-red-200 relative w-full aspect-[7/10] rounded-md overflow-hidden">
+                                    <img className="w-full h-full" src={item} alt="Cover"/>
+                                </div>
 
-                            <div className="section-item-footer hidden md:block bg-[rgba(100,100,100,0.1)] absolute w-full left-0 px-2 pb-3 transition-all duration-300 events-none">
-                                <p className="text-[19px]">Title {item}</p>
+                                <div className="text-center text-white/60 text-[15px] py-2">
+                                    <p>Title</p>
+                                </div>
                             </div>
                         </a>
                     ))}
