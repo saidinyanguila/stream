@@ -115,7 +115,7 @@ const Watch = () => {
                         </div>
                         }
         
-                        <Section title="Customers also watched" />
+                        <Section title="Customers also watched" items={[]} type={0}/>
                     </div>
                 </section>
             </div>

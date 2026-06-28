@@ -2,16 +2,17 @@ import { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
+import TvCard from "./TvCard";
+import MovieCard from "./MovieCard";
+
 type SectionProps = {
-  title: string;
+    title: string;
+    type: number;
+    items: [];
 };
 
-const items = Object.values(
-    import.meta.glob('@/assets/covers/*.{jpg,jpeg,png,webp}', { eager: true })
-).map((mod: any) => mod.default);
 
-
-const Section = ({ title }: SectionProps) => {
+const Section = ({ title, type, items }: SectionProps) => {
     const [emblaRef, emblaApi] = useEmblaCarousel({
         loop: false,
         align: "start",
@@ -47,8 +48,8 @@ const Section = ({ title }: SectionProps) => {
     }, [emblaApi, updateButtons])
 
     return (
-        <div className="px-0 py-7 text-white">
-            <div className="flex items-center justify-between mb-8">
+        <div className="px-0 py-6">
+            <div className="flex items-center justify-between text-white mb-8">
                 <h2 className="md:text-3xl font-bold text-xl">{title}</h2>
 
                 <div className="md:flex hidden items-center gap-5">
@@ -62,20 +63,8 @@ const Section = ({ title }: SectionProps) => {
             </div>
 
             <div className="overflow-x-hidden" ref={emblaRef}>
-                <div className="md:flex grid grid-flow-col gap-x-2">
-                    {items.map((item, key) => (
-                        <a href="/stream/watch/item_id" key={key} className="">
-                            <div className="relative shrink-0 md:w-[10%] md:min-w-[175px] min-w-[135px] rounded-md overflow-hidden cursor-pointer">
-                                <div className="bg-red-200 relative w-full aspect-[7/10] rounded-md overflow-hidden">
-                                    <img className="w-full h-full" src={item} alt="Cover"/>
-                                </div>
-
-                                <div className="text-center text-white/60 text-[15px] py-2">
-                                    <p>Title</p>
-                                </div>
-                            </div>
-                        </a>
-                    ))}
+                <div className="md:flex grid grid-flow-col gap-x-3">
+                    {items.map(item => type == 0? <MovieCard item={item}/> : <TvCard item={item}/>)}
                 </div>
             </div>
         </div>
@@ -83,3 +72,4 @@ const Section = ({ title }: SectionProps) => {
 }
 
 export default Section;
+
