@@ -22,7 +22,7 @@ const TvCard = ({ item }: TvItem) => {
     }
 
     return (
-        <a href={`/stream/watch/${item.id}`} className="relative text-white shrink-0 md:w-[12%] md:min-w-[175px] min-w-[135px] cursor-pointer">
+        <a href={`/stream/watch/tv/${item.id}`} className="relative text-white shrink-0 md:w-[12%] md:min-w-[175px] min-w-[135px] cursor-pointer">
             <div className="relative relative w-full aspect-[7/10] rounded-md overflow-hidden">
                 <img className="w-full h-full" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={`${item.original_name} Cover Art`}/>
                 

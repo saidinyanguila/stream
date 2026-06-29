@@ -29,9 +29,16 @@ export const SearchTv = async (query : string) => {
     return data.results;
 }
 
-export const GetItem = async (id : string) => {
-    const response = await fetch(`${BASE_URL}/find/${encodeURIComponent(id)}?api_key=${API_KEY}`);
+export const GetMovie = async (id : string) => {
+    const response = await fetch(`${BASE_URL}/movie/${encodeURIComponent(id)}?api_key=${API_KEY}`);
     const data = await response.json();
 
-    return data.results;
+    return data;
+}
+
+export const GetTvShow = async (id : string) => {
+    const response = await fetch(`${BASE_URL}/tv/${encodeURIComponent(id)}?api_key=${API_KEY}`);
+    const data = await response.json();
+
+    return data;
 }

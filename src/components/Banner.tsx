@@ -2,8 +2,6 @@ import { useState, useEffect, useRef } from "react"
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay"
 
-import _banner from "../assets/banners/00_banner.jpg";
-
 type BannerItem = {
     backdrop_path: string;
     title: string;
@@ -21,7 +19,7 @@ const Banner = ({ items } : BannerItemProps) => {
     const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
     
     const autoplay = useRef(
-        Autoplay({ delay: 60000, stopOnInteraction: false })
+        Autoplay({ delay: 5000, stopOnInteraction: false })
     )
 
     const [emblaRef, emblaApi] = useEmblaCarousel(

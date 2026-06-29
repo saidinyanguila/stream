@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Search from "./pages/Search";
 import Watch from "./pages/Watch";
+import WatchTv from "./pages/WatchTv";
 import Category from './pages/Category';
 import NotFound from './pages/NotFound';
 
@@ -19,7 +20,9 @@ const App = () => (
 				<Route path="/movies/" element={<Category title="Movies" />} />
 				<Route path="/tv/" element={<Category title="TV Shows" />} />
 				
-				<Route path="/watch/:id" element={<Watch />} />
+				<Route path="/watch/movie/:id" element={<Watch />} />
+				<Route path="/watch/tv/:id" element={<WatchTv />} />
+
 				<Route path="/player/" element={<Watch />} />
 
 				{/* <Route path="/watchlist/" element={<Watch />} /> */}
