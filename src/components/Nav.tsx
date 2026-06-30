@@ -25,6 +25,7 @@ const Nav = ({ title }: NavProps) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [genreOpen, setGenreOpen] = useState(false);
 
     const toggleSearch = () => {
         setIsSearchOpen(!isSearchOpen);
@@ -65,7 +66,7 @@ const Nav = ({ title }: NavProps) => {
     return (
         <div className="bg-[rgba(0,0,0,0.75)]">
             <div className="max-w-[1440px] mx-auto relative">
-                <div className="backdrop-blur-lg relative w-full top-0 left-0 flex items-center justify-between px-3 py-2 md:px-8 md:py-4 text-white z-99">            
+                <div className="relative w-full top-0 left-0 flex items-center justify-between px-3 py-2 md:px-8 md:py-4 text-white z-99">            
                     <div className="flex items-center gap-4 md:gap-8">
                         <button className="md:hidden p-3 rounded-full cursor-pointer active:bg-[rgba(100,100,100,0.5)]" onClick={() => toggleNav()}>
                             {isOpen? <X /> : <Menu />}
@@ -86,12 +87,22 @@ const Nav = ({ title }: NavProps) => {
                             <Search size={20} className="absolute top-1/2 left-4 -translate-y-1/2"/>
                         </form>
 
-                        <button className="p-2 rounded-full cursor-pointer hover:bg-[rgba(100,100,100,0.5)]"><Grid3X3 /></button>
+                        <div onClick={() => setGenreOpen(!genreOpen)} className="relative p-2 rounded-full cursor-pointer hover:bg-[rgba(100,100,100,0.5)]">
+                            {genreOpen? <X /> :<Grid3X3 />}
+                            
+                            <div className={`${genreOpen? "mt-5 opacity-[100%] pointer-events-all" : "mt-0 opacity-[0%] pointer-events-none"} absolute bg-[rgb(0,0,0)] p-5 min-w-180 top-full -right-full transition-all duration-350 rounded-md`}>
+                                <p className="text-2xl font-[500] mb-6">Discover</p>
+                                <div className="grid grid-cols-3 gap-y-2 justify-between">
+                                    {genres.map((genre, key) => (
+                                        <a key={key} className="block" href={`/stream/discover/${genre.title.toLowerCase()}`}>{genre.title}</a>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
 
                         {isLoggedIn? 
                         <button className="hover:bg-[rgba(100,100,100,0.5)] px-4 py-2 flex gap-2 items-center text-[15px] rounded-full cursor-pointer" onClick={() => setIsLoggedIn(!isLoggedIn)}>
-                            <User2 size={20}/>
-                            user
+                            <User2 size={20}/> user
                         </button>
                         :
                         <button className="hover:bg-[rgba(100,100,100,0.5)] px-4 py-2 text-[15px] rounded-full cursor-pointer" onClick={() => setIsLoggedIn(!isLoggedIn)}>Sign In</button>

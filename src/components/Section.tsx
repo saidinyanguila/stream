@@ -64,7 +64,7 @@ const Section = ({ title, type, items }: SectionProps) => {
 
             <div className="overflow-x-hidden" ref={emblaRef}>
                 <div className="md:flex grid grid-flow-col gap-x-3">
-                    {items.map(item => type == 0? <MovieCard item={item}/> : <TvCard item={item}/>)}
+                    {items.map((item, key) => type == 0? <MovieCard key={key} item={item}/> : <TvCard key={key} item={item}/>)}
                 </div>
             </div>
         </div>
